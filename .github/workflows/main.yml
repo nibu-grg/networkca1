@@ -37,9 +37,9 @@ jobs:
 
       - name: Install Docker on EC2
         run: |
-          ansible-playbook -i <EC2-IP>, -u ec2-user --private-key /path/to/your-key.pem install_docker.yml
+          ansible-playbook -i <EC2-IP>, -u ec2-user --private-key ~/terraform/key_value.pem install_docker.yml
 
       - name: Deploy Hello World Docker App
         run: |
-          ssh -i /path/to/your-key.pem ec2-user@<EC2-IP> "docker build -t hello-world ."
-          ssh -i /path/to/your-key.pem ec2-user@<EC2-IP> "docker run hello-world"
+          ssh -i ~/terraform/key_value.pem ec2-user@<EC2-IP> "docker build -t hello-world ."
+          ssh -i ~/terraform/key_value.pem ec2-user@<EC2-IP> "docker run hello-world"

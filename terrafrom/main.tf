@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "NetworkCA1"
+    Name = "AutoNetworkCA1"
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_subnet" "ca1_subnet" {
   availability_zone = "eu-west-1c"     # Set your preferred availability zone
   map_public_ip_on_launch = true
   tags = {
-    Name = "NetworkSubnet"
+    Name = "AutoNetworkSubnet"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_subnet" "ca1_subnet" {
 resource "aws_internet_gateway" "ca1_igw" {
   vpc_id = aws_vpc.my_vpc.id
   tags = {
-    Name = "NetworkInternetGateway"
+    Name = "AutoNetworkInternetGateway"
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_route_table" "ca1_route_table" {
   }
 
   tags = {
-    Name = "NetworkRouteTable"
+    Name = "AutoNetworkRouteTable"
   }
 }
 
@@ -78,7 +78,7 @@ resource "aws_security_group" "ca1_sg" {
   }
 
   tags = {
-    Name = "NetworkSecurityGroup"
+    Name = "AutoNetworkSecurityGroup"
   }
 }
 
@@ -91,7 +91,7 @@ resource "aws_instance" "ca1_instance" {
   key_name      = "key_value"               # Replace with your actual key pair name
 
   tags = {
-    Name = "NetworkEC2Instance"
+    Name = "AutoNetworkEC2Instance"
   }
 }
 
